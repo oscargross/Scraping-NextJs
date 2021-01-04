@@ -1,11 +1,13 @@
 import puppeteer from 'puppeteer'
+import chrome from 'chrome-aws-lambda'
 
 async function browser(password, login, inicialDateFomated, finalDateFomated) {
   try {
 
     const browser = await puppeteer.launch({
-      headless: true,
-      args: ["--no-sandbox"]
+      args: chrome.args,
+      executablePath: await chrome.executablePath,
+      headless: chrome.headless
     });
 
     const page = await browser.newPage();
