@@ -16,7 +16,8 @@ async function browser(password, login, inicialDateFomated, finalDateFomated) {
     await page.waitForSelector('input[name="ctl00$ContentPlaceHolder1$txtLogin"]');
     await page.type('input[name="ctl00$ContentPlaceHolder1$txtLogin"]', login, { delay: 100 });
     await page.type('input[name="ctl00$ContentPlaceHolder1$txtSenha"]', password, { delay: 100 });
-    await page.keyboard.press('Enter');
+    await page.waitForTimeout(1000)
+
     await page.click('#ContentPlaceHolder1_btnLogin');
     await page.waitForTimeout(2000)
 
