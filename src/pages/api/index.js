@@ -4,7 +4,7 @@ async function browser(password, login, inicialDateFomated, finalDateFomated) {
   try {
 
     const browser = await puppeteer.launch({
-      headless: false,
+      headless: true,
       args: ["--no-sandbox"]
     });
 
