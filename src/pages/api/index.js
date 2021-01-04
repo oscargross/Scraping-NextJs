@@ -69,7 +69,7 @@ export default async function (req, res) {
 
   if (req.method === "POST") {
     if (req.headers.referer === "http://localhost:3000/") {
-      const returnMessage = await browserWhats(req.body.password, req.body.login, req.body.inicialDateFomated, req.body.finalDateFomated)
+      const returnMessage = await browser(req.body.password, req.body.login, req.body.inicialDateFomated, req.body.finalDateFomated)
       typeof returnMessage === "string"
         ? res.json({ message: returnMessage })
         : res.json({ message: false, list: returnMessage })

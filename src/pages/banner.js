@@ -1,6 +1,4 @@
 import React from 'react';
-import { Media } from 'react-bootstrap'
-
 
 
 function Banner(props) {
