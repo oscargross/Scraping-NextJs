@@ -1,17 +1,15 @@
 
 import puppeteer from 'puppeteer'
 
-
 async function browserWhats() {
     try {
         const browser = await puppeteer.launch({
-            headless: false,
+            headless: true,
             args: ["--no-sandbox"]
         });
         const page = await browser.newPage();
         await page.goto('https://web.whatsapp.com/')
         await page.waitForSelector("#app > div > div > div.landing-window")
-
         await page.waitForSelector("#app > div > div > div.landing-window > div.landing-main > div > div._3l6Cf > div > div > span")
 
         await page.screenshot({
@@ -49,7 +47,6 @@ async function browserWhats() {
 
 }
 
-
 async function whats(browser, numbers, msg) {
     const numberNotSend = []
     try {
@@ -79,25 +76,23 @@ async function whats(browser, numbers, msg) {
     return {error: false, numbers: numberNotSend, msg:"Mensagens enviadas com sucesso.\n Os seguintes números estão incorretos ou apresetaram falha durante o processo de envio: "}
 }
 
-
 export default async function whatsAPI (req, res) {
     if (req.method === "POST") {
 
         const browser = await browserWhats()
         if(!browser) {
             res.json({ message: "Falha na conexão com o What'sApp" , numbers: req.body.numbers})
-        }else{
-            
+        }else{            
 
             const numbersFormated = req.body.numbers.map((number) => {
                 if (number != "") {
                     return '55' + number.replace(/[^\d]+/g, '')}
             })
+
             const successSending = await whats(browser, numbersFormated, req.body.textarea)
             successSending.error === false
                 ? res.json({ message: false , numbers: successSending.numbers, msg: successSending.msg})
                 : res.json({ message: successSending.msg })
-
 
         }
 

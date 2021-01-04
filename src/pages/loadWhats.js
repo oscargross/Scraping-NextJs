@@ -26,14 +26,13 @@ function LoadWhats(props) {
                                 }
                             </div>
                     </>
-                   : 
-                        <>
-                            <Banner props={"Aguarde o envio das mensagens. Acompanhe em seu celular"} />
-                            <Spinner animation="border" />
-                            </>
+                    : 
+                    <>
+                        <Banner props={"Aguarde o envio das mensagens. Acompanhe em seu celular"} />
+                        <Spinner animation="border" />
+                    </>
                 }
             </Container>
-
         </>
     );
 }
