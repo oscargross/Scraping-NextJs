@@ -42,7 +42,7 @@ export default class Home extends Component {
 
     this.setState({ error: false })
     this.setState({ loading: true })
-    await axios.post('/api', { login, password, inicialDateFomated, finalDateFomated, textarea }).then((res) => {
+    await axios.post('https://scraping-nextjs.herokuapp.com/api', { login, password, inicialDateFomated, finalDateFomated, textarea }).then((res) => {
       const returnMessage = res.data.message
       const returnlistNames = res.data.list
 
@@ -79,7 +79,7 @@ export default class Home extends Component {
         numbers.push(this.state[listNames[i]])
     }
 
-    await axios.post('/api/whats', { numbers, textarea }).then((res) => {
+    await axios.post('https://scraping-nextjs.herokuapp.com/api/whats', { numbers, textarea }).then((res) => {
       const returnMessage = res.data.message
       returnMessage === false
         ? this.successSentMessages(res.data.numbers, res.data.msg)
