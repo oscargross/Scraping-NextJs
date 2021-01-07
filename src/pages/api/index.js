@@ -32,6 +32,8 @@ async function browser(password, login, inicialDateFomated, finalDateFomated) {
     await page.waitForSelector('#ContentPlaceHolder1_AppContentPlaceHolder_AppContentPlaceHolderCRM_txtDataInicial')
     await page.type('input[name="ctl00$ctl00$ctl00$ContentPlaceHolder1$AppContentPlaceHolder$AppContentPlaceHolderCRM$txtDataFinal"]', finalDateFomated, { delay: 80 })
     await page.type('input[name="ctl00$ctl00$ctl00$ContentPlaceHolder1$AppContentPlaceHolder$AppContentPlaceHolderCRM$txtDataInicial"]', inicialDateFomated, { delay: 80 })
+    return 'Testeee'
+
     await page.select('#ContentPlaceHolder1_AppContentPlaceHolder_AppContentPlaceHolderCRM_drlCodUsuariosResponsavel', '29')
     await page.click('#ContentPlaceHolder1_AppContentPlaceHolder_AppContentPlaceHolderCRM_rblPeriodo_1', { delay: 50 });
     await page.click('#ContentPlaceHolder1_AppContentPlaceHolder_AppContentPlaceHolderCRM_btnPesquisar', { delay: 150 });
