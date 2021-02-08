@@ -1,5 +1,6 @@
 # Scraping-NextJs - Scraping of private data and sending by whats
 Projeto criado a partir do repositório https://github.com/oscargross/Web-Scraping-Whats
+Acesse aqui: https://scraping-next-js.vercel.app/
 
 Contexto:
 	Sistema privado da empresa de software supre as necessidades em todas funções de sua ERP de uma empresa (que trabalho atualmente) no ramo de venda e manutenção de equipamentos. Um dos módulos do ERP consiste do gerenciamento e controle de ordens de serviço, com gestão por meio de status dos equipamentos consertados/reparados, bem como possui outros módulos, como financeiro, comercial, estoque...
